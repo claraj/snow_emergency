@@ -1,0 +1,51 @@
+# Install openrouteservice-r for getting driving distances between tow and impound lot 
+
+install.packages("remotes")
+remotes::install_github("GIScience/openrouteservice-r")
+
+library(openrouteservice)
+open_route_service_token <- '5b3ce3597851110001cf6248631d33bc3be843d9a10ef59e4653b0b8'
+ors_api_key(open_route_service_token)
+
+# An example query 
+# https://api.openrouteservice.org/v2/directions/driving-car?api_key=KEY&start=-93.681495,45.41461&end=-94.687872,46.420318
+
+impound_lot <- c(-93.291796, 44.977125)  # longitude and latitude of 51 Colfax Ave N, Minneapolis 
+
+# tows <- read.csv("data/Snow_Emergency_Westminster_Tows_2019.csv")  # all ~900 tows 
+tows = read.csv("data/Subset_Snow_Emerg.csv")  # 2 rows of tows for testing
+head(tows)
+
+tows$Longitude
+tows$Latitude
+
+# Example call to openrouteservice 
+coordinates <- list( c(-93.288021, 45.013111), impound_lot )
+directions <- ors_directions(coordinates)
+distance_m <- directions$features[[1]]$properties$summary$distance 
+duration_s <- directions$features[[1]]$properties$summary$duration 
+
+# tows$wot <- c(tows$Latitude, tows$Longitude) # no
+tows
+
+# Need to perform this operation on every row of dataframe 
+
+driving <- function(start, end=end) {
+  str(start)
+  start_loc <- c(start[7], start[6])
+  coordinates <- list (start_loc , end )
+  
+  directions <- ors_directions(coordinates)
+  distance_m <- directions$features[[1]]$properties$summary$distance
+  duration_s <- directions$features[[1]]$properties$summary$duration
+  
+  #return( c(distance_m, duration_s) )   # needs time too? Or distance? 
+  return(distance_m)
+}
+
+tows$distance <- apply(tows, 1, FUN=driving, end=impound_lot)
+head(tows)
+
+driving( c(-93.288021, 45.013111), impound_lot)  # [1] 4353.7  427.2  yes works
+
+

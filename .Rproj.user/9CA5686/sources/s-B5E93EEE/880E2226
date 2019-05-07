@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1557242402490.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "880E2226",
+    "lastKnownWriteTime" : 1557248051,
+    "last_content_update" : 1557248258837,
+    "path" : "~/Development/r/snow_proj/snow_emergency.R",
+    "project_path" : "snow_emergency.R",
+    "properties" : {
+        "cursorPosition" : "48,0",
+        "scrollLine" : "31",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
