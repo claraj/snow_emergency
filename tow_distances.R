@@ -58,7 +58,8 @@ tows$time_s <- result[2, ]   # Column 2 of the matrix
 
 head(tows)
 
-write.csv(tows, "tows_distances.csv")  # Save to a new file 
+write.csv(tows, "data/tows_distances.csv")  # Save to a new file 
 
+# Takes ~20 minutes to run for ~900 tows.
 
 

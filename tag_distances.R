@@ -64,3 +64,4 @@ add_distances("data/Snow_Emergency_Westminster_Tags_2019.csv", "data/tags_distan
 # add_distances("data/Subset_Snow_Emerg_Tows.csv", "data/TESTING_tows_distances.csv")  # ~ 900 tows 
 # add_distances("data/Subset_Snow_Emerg_Tags.csv", "data/TESTING_tags_distances.csv")  # ~ 4151 tags 
 
+# TODO split tags dataset into parts to get beneath the 2000 daily API calls limit  
