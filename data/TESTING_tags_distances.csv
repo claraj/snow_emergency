@@ -1,0 +1,4 @@
+"","X","Y","OBJECTID","Citation_N","Date","Address","Ordinance","Latitude","Longitude","Ward","Community","Neighborho","Tow_Zone","Day","Snow_Emerg","distances_m","time_s"
+"1",-93.280941,45.014943,1,271119336836,"2019-02-12T00:00:00.000Z","3431 2ND ST N","478.1000(a)",45.014943,-93.280941,4,"Camden","McKinley",1,1,"Westminster",4991,499.9
+"2",-93.23537,44.987818,2,271119340679,"2019-02-12T00:00:00.000Z","1116 COMO AVE SE","478.1000(a)",44.987818,-93.23537,2,"University","Como",4,1,"Westminster",5703.6,666.1
+"3",-93.235083,44.98786,3,271119340523,"2019-02-12T00:00:00.000Z","1108 COMO AVE SE","478.1000(a)",44.98786,-93.235083,2,"University","Como",4,1,"Westminster",5726.5,668.2
