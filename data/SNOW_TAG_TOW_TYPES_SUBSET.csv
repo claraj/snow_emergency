@@ -1,0 +1,4 @@
+Type,X,Y,OBJECTID,Call_Taken,Location,Latitude,Longitude,Ward,Community,Neighborho,Tow_Zone,Day,Snow_Emerg,STREET_TYPE,distance,duration,,,,,,,,
+TOW,-93.262588,44.94139,2,02/12/2019 09:19pm,"3398 Chicago ave s,Minneapolis,MN",44.94139,-93.262588,9,Powderhorn,Central,5,1,Westminster,MSA,,,,,,,,,,
+TOW,-93.262606,44.943159,3,02/12/2019 09:19pm,"3301 Chicago Avenue South,Minneapolis,MN",44.943159,-93.262606,9,Powderhorn,Central,5,1,Westminster,MSA,4,3,,,,,,,,
+TAG,-93.268927,44.939967,5131,2019-02-14T00:00:00.000Z,3445 5TH AVE S,44.939967,-93.268927,9,Powderhorn,Central,5,3,Westminster,RES,,,,,,,,,,
