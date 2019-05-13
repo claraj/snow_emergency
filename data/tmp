@@ -1,0 +1,3 @@
+gdal_rasterize -l Snow_Emergency_Westminster_Tows_And_Tags_2019 -a Day -ts 10.0005 10.0005 -a_nodata 0.0 -te -93.36916236708814 44.887239275 -93.16342163291185 45.054933725 -ot Float32 -of GTiff /Users/student1/Development/r/snow_proj/data/Snow_Emergency_Westminster_Tows_And_Tags_2019.csv out.tif
+
+gdal_rasterize -l Snow_Emergency_Westminster_Tows_And_Tags_2019 -a Day -ts 1 1 -a_nodata 0.0 -te -93.36916236708814 44.887239275 -93.16342163291185 45.054933725 -ot Float32 -of GTiff /Users/student1/Development/r/snow_proj/data/Snow_Emergency_Westminster_Tows_And_Tags_2019.csv out.tif
