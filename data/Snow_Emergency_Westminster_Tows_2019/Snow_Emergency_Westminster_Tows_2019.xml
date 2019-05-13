@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?><MD_Metadata xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:srv="http://www.isotc211.org/2005/srv" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:xalan="http://xml.apache.org/xalan" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gml="http://www.opengis.net/gml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.isotc211.org/2005/gmd">
+<characterSet>
+<MD_CharacterSetCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode" codeListValue="utf8" codeSpace="ISOTC211/19115">utf8</MD_CharacterSetCode>
+</characterSet>
+<hierarchyLevel>
+<MD_ScopeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_ScopeCode" codeListValue="dataset" codeSpace="ISOTC211/19115">dataset</MD_ScopeCode>
+</hierarchyLevel>
+<hierarchyLevelName>
+<gco:CharacterString>dataset</gco:CharacterString>
+</hierarchyLevelName>
+<contact gco:nilReason="missing"/>
+<dateStamp gco:nilReason="missing"/>
+<metadataStandardName>
+<gco:CharacterString>ISO 19139 Geographic Information - Metadata - Implementation Specification</gco:CharacterString>
+</metadataStandardName>
+<metadataStandardVersion>
+<gco:CharacterString>2007</gco:CharacterString>
+</metadataStandardVersion>
+<identificationInfo>
+<MD_DataIdentification>
+<citation gco:nilReason="missing"/>
+<abstract>
+<gco:CharacterString>This is the information about the number and location of tows during this snow emergency. Tow data will be retained for all Snow Emergencies in each snow season, until there is five full seasons of snow emergencies.   Disclaimer: There is an expected address error rate of between 8 and 14 percent.Snow Emergency Tows –
+2018/2019 Season #3 Westminster (2/12/19 thru 2/14/19) 
+
+ 
+
+
+ 
+  
+  Field Name
+  
+  
+  Field Type
+  
+  
+  Field Description
+  
+ 
+ 
+  
+  FID
+  
+  
+  Object ID
+  
+  
+  Object ID
+  
+ 
+ 
+  
+  Call_Taken
+  
+  
+  Text
+  
+  
+  Date and time tag
+  written
+  
+ 
+ 
+  
+  Customer
+  
+  
+  Text
+  
+  
+  Snow Emergency
+  
+ 
+ 
+  
+  Location 
+  
+  
+  Text
+  
+  
+  Address
+  
+ 
+ 
+  
+  Latitude
+  
+  
+  Numeric
+  
+  
+  X Coordinate -
+  Geocode
+  
+ 
+ 
+  
+  Longitude
+  
+  
+  Numeric
+  
+  
+  Y Coordinate -
+  Geocode
+  
+ 
+ 
+  
+  Day
+  
+  
+  Text
+  
+  
+  Day of event
+  
+ 
+ 
+  
+  Ward
+  
+  
+  Text
+  
+  
+  Ward number 1 - 13
+  
+ 
+ 
+  
+  Community
+  
+  
+  Text
+  
+  
+  Name of Community
+  
+ 
+ 
+  
+  Neighborho
+  
+  
+  Text
+  
+  
+  Name of Neighborhood
+  
+ 
+ 
+  
+  Tow
+  
+  
+  Text
+  
+  
+  Tow District
+  
+ 
+</gco:CharacterString>
+</abstract>
+<purpose>
+<gco:CharacterString>Snow Emergency Tows – 2018/2019 Season #3 Westminster (2/12/19 thru 2/14/19)</gco:CharacterString>
+</purpose>
+<descriptiveKeywords>
+<MD_Keywords>
+<keyword>
+<gco:CharacterString>Minneapolis</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>Snow Emergency</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>Public Works</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>Tows</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>2019</gco:CharacterString>
+</keyword>
+</MD_Keywords>
+</descriptiveKeywords>
+<descriptiveKeywords>
+<MD_Keywords>
+<keyword>
+<gco:CharacterString>Minneapolis</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>Snow Emergency</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>Public Works</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>Tows</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>2019</gco:CharacterString>
+</keyword>
+</MD_Keywords>
+</descriptiveKeywords>
+<descriptiveKeywords>
+<MD_Keywords>
+<keyword>
+<gco:CharacterString>Minneapolis</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>Snow Emergency</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>Public Works</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>Tows</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>2019</gco:CharacterString>
+</keyword>
+</MD_Keywords>
+</descriptiveKeywords>
+<descriptiveKeywords>
+<MD_Keywords>
+<keyword>
+<gco:CharacterString>Minneapolis</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>Snow Emergency</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>Public Works</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>Tows</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>2019</gco:CharacterString>
+</keyword>
+</MD_Keywords>
+</descriptiveKeywords>
+<descriptiveKeywords>
+<MD_Keywords>
+<keyword>
+<gco:CharacterString>Minneapolis</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>Snow Emergency</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>Public Works</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>Tows</gco:CharacterString>
+</keyword>
+<keyword>
+<gco:CharacterString>2019</gco:CharacterString>
+</keyword>
+</MD_Keywords>
+</descriptiveKeywords>
+<resourceConstraints>
+<MD_Constraints>
+<useLimitation>
+<gco:CharacterString>The maps provided by the City of Minneapolis are compilations of records, information and data from various sources, and they are to be used for reference purposes only. The City of Minneapolis does not warrant or guarantee that the Geographic Information Systems (GIS) data or maps are complete, current, or accurate. The City of Minneapolis does not represent that the GIS data can be used for navigational, tracking, legal, engineering, surveying, or any other purpose requiring exacting measurement of distance or direction or precision in the depiction of geographic features. Pursuant to Minnesota Statutes, Section 466.03, Subdivision 21, the City of Minneapolis disclaims any liability for claims based on alleged or actual inaccuracies in the GIS data or maps.This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License.</gco:CharacterString>
+</useLimitation>
+</MD_Constraints>
+</resourceConstraints>
+<language gco:nilReason="missing"/>
+<characterSet>
+<MD_CharacterSetCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode" codeListValue="utf8" codeSpace="ISOTC211/19115">utf8</MD_CharacterSetCode>
+</characterSet>
+</MD_DataIdentification>
+</identificationInfo>
+</MD_Metadata>
