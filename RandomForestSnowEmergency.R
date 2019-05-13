@@ -25,12 +25,12 @@ per_100 <- max(dataframe$distance)
 RB_DI <- rbind(per_00, per_25, per_50, per_75, per_100)
 dimnames(RB_DI)[[2]] <- "Value"
 
-dataframe$distanceCat[dataframe$distance >= per_00 & dataframe$distance < per_25] = "1"
-dataframe$distanceCat[dataframe$distance >= per_25 & dataframe$distance < per_50] = "2"
-dataframe$distanceCat[dataframe$distance >= per_50 & dataframe$distance < per_75] = "3"
-dataframe$distanceCat[dataframe$distance >= per_75 & dataframe$distance <= per_100] = "4"
+dataframe$distanceCat[dataframe$distance >= per_00 & dataframe$distance < per_25] = 1
+dataframe$distanceCat[dataframe$distance >= per_25 & dataframe$distance < per_50] = 2
+dataframe$distanceCat[dataframe$distance >= per_50 & dataframe$distance < per_75] = 3
+dataframe$distanceCat[dataframe$distance >= per_75 & dataframe$distance <= per_100] = 4
 
-dataframe$distanceCat <- factor(dataframe$distanceCat)
+# dataframe$distanceCat <- factor(dataframe$distanceCat)
 
 # Repeat for duration. Todo look up if there's a built-in way to do this in R
 per_00 <- min(dataframe$duration)
@@ -48,21 +48,22 @@ dataframe$durationCat[dataframe$duration >= per_50 & dataframe$duration < per_75
 dataframe$durationCat[dataframe$duration >= per_75 & dataframe$duration <= per_100] = 4
 
 # Convert to factor 
-dataframe$durationCat <- factor(dataframe$durationCat)
+# dataframe$durationCat <- factor(dataframe$durationCat)
 
 # Save categories 
 summary(dataframe)
 write.csv(dataframe, "categorize_snow_emergency.csv")
 
-# Create coordinates for dataframe, which converts dataframe to a SpatialPointsDataFrame
-coordinates(dataframe) <- ~Longitude+Latitude
 
 # Run the random forest model with the columns given 
 
 random_forest <- randomForest( Type ~ Ward + Community + Day + Tow_Zone + STREET_TYPE + distanceCat + durationCat, data=dataframe, ntree=500, importance=TRUE, proximity=TRUE)
 importance(random_forest)
 # dev.off()
-# varImpPlot(random_forest)
+varImpPlot(random_forest)
+
+# Create coordinates for dataframe, which converts dataframe to a SpatialPointsDataFrame
+coordinates(dataframe) <- ~Longitude+Latitude
 
 ############### Creating predictive raster layer ###############
 
@@ -78,19 +79,26 @@ cell_size <- 0.0005
 ncols <- (( lonMax - lonMin) / cell_size) + 1
 nrows <- (( latMax - latMin) / cell_size) + 1
 
-# Works
+ext <- extent(lonMin, lonMax, latMax, latMax)
+
+# Works  (?)
 r_d <- raster(ncols=ncols, nrows=nrows, xmn=lonMin, xmx=lonMax, ymn=latMin, ymx=latMax)
 day_raster = rasterize(dataframe, r_d, "Day", fun="min", filename="Day.tif", overwrite=TRUE)
 
+
+plot(day_raster)
+
 r_di <- raster(ncols=ncols, nrows=nrows, xmn=lonMin, xmx=lonMax, ymn=latMin, ymx=latMax)
-distance_raster = rasterize(dataframe, r_di, "distanceCat", fun=mean, filename="distanceCat.tif", overwrite=TRUE)
+distance_raster = rasterize(dataframe, r_di, "distanceCat", fun="min", filename="distanceCat.tif", overwrite=TRUE)
+plot(distance_raster)
 
 r_du <- raster(ncols=ncols, nrows=nrows, xmn=lonMin, xmx=lonMax, ymn=latMin, ymx=latMax)
 duration_raster = rasterize(dataframe, r_du, "durationCat", fun=mean, filename="durationCat.tif", overwrite=TRUE)
 
 # Everything else is a factor - how to convert to Raster? What value to write for factor's levels? 
 r_w <- raster(ncols=ncols, nrows=nrows, xmn=lonMin, xmx=lonMax, ymn=latMin, ymx=latMax)
-ward_raster = rasterize(dataframe, r_w, "Ward", fun=function(x, na.rm) { max(as.numeric(x)) }, filename="ward.tif", overwrite=TRUE)
+ward_raster = rasterize(dataframe, r_w, "Ward", fun=function(x, na.rm) { max(as.numeric(x)) }, filename="Ward.tif", overwrite=TRUE)
+plot(ward_raster)
 
 r_t <- raster(ncols=ncols, nrows=nrows, xmn=lonMin, xmx=lonMax, ymn=latMin, ymx=latMax)
 tow_zone_raster = rasterize(dataframe, r_t, "Tow_Zone", fun=function(x, na.rm) { max(as.numeric(x)) }, filename="Tow_Zone.tif", overwrite=TRUE)
@@ -100,13 +108,19 @@ community_raster = rasterize(dataframe, r_c, "Community", fun=function(x, na.rm)
 
 r_s <- raster(ncols=ncols, nrows=nrows, xmn=lonMin, xmx=lonMax, ymn=latMin, ymx=latMax)
 street_type_raster = rasterize(dataframe, r_s, "STREET_TYPE", fun=function(x, na.rm) { max(as.numeric(x)) },  filename="STREET_TYPE.tif", overwrite=TRUE)
+
 raster_combo <- c(ward_raster, community_raster, day_raster, tow_zone_raster, street_type_raster, distance_raster, duration_raster)
+
+for (r in raster_combo) {
+  extent(r) <- ext
+}
+
 raster_stack <- stack(raster_combo)
 
 # set names 
 names(raster_stack) <- c("Ward", "Community", "Day", "Tow_Zone", "STREET_TYPE", "distanceCat", "durationCat")
 
-predict_raster_layer <- predict(raster_stack, random_forest, "predictive_snow_emergency_raster.img", overwrite=TRUE)
+predict_raster_layer <- predict(raster_stack, random_forest, "predictive_snow_emergency_raster.tif", overwrite=TRUE)
 #dev.off()
 plot(predict_raster_layer)
 
